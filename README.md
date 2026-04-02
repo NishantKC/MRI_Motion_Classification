@@ -15,28 +15,27 @@ This project generates synthetic motion artifacts on OASIS brain MRI slices at f
 ## Project Structure
 
 ```
-├── MainADExperiment.py          # Train on clean MRI, evaluate across motion levels
-├── MainViT.py                   # ViT training for motion severity classification
-├── Main.py                      # Legacy Keras CNN training
+├── MainADExperiment.py              # Train on clean MRI, evaluate across motion levels
 ├── DeepLearning/
-│   ├── ViTModel.py              # Vision Transformer (PyTorch)
-│   ├── CNNModel.py              # CNN model (Keras)
-│   ├── VAENetwork.py            # Variational Autoencoder
-│   └── CycleGAN.py              # CycleGAN for domain adaptation
+│   ├── ViTModel.py                  # Vision Transformer (PyTorch)
+│   ├── CNNModel.py                  # CNN model (Keras)
+│   ├── VAENetwork.py                # Variational Autoencoder
+│   └── CycleGAN.py                  # CycleGAN for domain adaptation
 ├── Utils/
 │   ├── DataUtils/
-│   │   ├── ADDataLoader.py      # OASIS AD dataset with CDR labels
-│   │   ├── DataGenerator.py     # Data generation pipeline
-│   │   ├── PyTorchDataLoader.py # PyTorch dataset/dataloader
-│   │   └── DataLoader.py        # Legacy data loading
+│   │   ├── ADDataLoader.py          # OASIS AD dataset with CDR labels
+│   │   ├── DataGenerator.py         # Data generation pipeline
+│   │   ├── PyTorchDataLoader.py     # PyTorch dataset/dataloader
+│   │   └── DataLoader.py            # Data loading utilities
 │   ├── MotionUtils/
-│   │   ├── GenerateMotion.py    # Synthetic motion artifact generation
-│   │   └── ImageTransform.py    # Image transformation utilities
-│   └── kspace/
-│       └── CartesianSampler.py  # K-space Cartesian sampling
-├── tables.py                    # Parse results into publication-ready tables
-├── data/                        # Exported CSV/Excel result tables
-└── tests/                       # Unit tests
+│   │   ├── GenerateMotion.py        # Synthetic motion artifact generation
+│   │   └── ImageTransform.py        # Image transformation utilities
+│   ├── kspace/
+│   │   └── CartesianSampler.py      # K-space Cartesian sampling
+│   └── ActivationMapUtils/
+│       └── ActivationMapUtil.py     # Model interpretation utilities
+├── tests/                           # Unit tests
+└── requirements.txt
 ```
 
 ## Setup
@@ -65,8 +64,6 @@ pip install -r requirements.txt
 
 ## Usage
 
-### AD Classification Experiment
-
 Train on clean images (M0) and evaluate across all motion levels:
 
 ```bash
@@ -77,20 +74,6 @@ This produces:
 - `ad_motion_metrics_results.csv` — metrics per motion level
 - `ad_motion_all_metrics.png` — individual metric bar charts
 - `ad_motion_combined_metrics.png` — grouped bar chart
-
-### Motion Severity Classification (ViT)
-
-```bash
-python MainViT.py
-```
-
-### Generate Publication Tables
-
-```bash
-python tables.py
-```
-
-Outputs CSV and Excel files in `data/`.
 
 ## Tests
 
