@@ -6,16 +6,6 @@ Investigating how synthetic motion artifacts in brain MRI scans affect the accur
 
 This project generates synthetic motion artifacts on OASIS brain MRI slices at five severity levels (M0–M4) using Cartesian k-space sampling, then measures the degradation of a ViT-based AD classifier trained on clean (M0) images.
 
-### Key Findings
-
-| Motion Level | Accuracy | Precision | Recall | F1 Score | AUROC |
-|---|---|---|---|---|---|
-| M0 (No Motion) | 0.4452 | 0.6811 | 0.4200 | 0.5196 | 0.4658 |
-| M1 (Small) | 0.3429 | 0.7308 | 0.1267 | 0.2159 | 0.3508 |
-| M2 (Mild) | 0.4048 | 0.8472 | 0.2033 | 0.3280 | 0.3672 |
-| M3 (Moderate) | 0.3310 | 0.6939 | 0.1133 | 0.1948 | 0.3667 |
-| M4 (Severe) | 0.3429 | 0.7609 | 0.1167 | 0.2023 | 0.4191 |
-
 ## Architecture
 
 - **Vision Transformer (ViT)**: Custom implementation with 6 transformer blocks, 384-dim embeddings, 16×16 patches on 256×256 grayscale MRI slices
