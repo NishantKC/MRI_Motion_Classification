@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# Generated data & models
+generated/
+mris/
+*.pth
+
+# OS
+.DS_Store
+~$*
+
+# IDE
+.idea/
+.vscode/
+*.swp

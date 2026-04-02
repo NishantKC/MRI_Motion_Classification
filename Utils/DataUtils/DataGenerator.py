@@ -1,17 +1,14 @@
 import os
+from pathlib import Path
 
 import cv2
 import numpy as np
 
 from Utils.DataUtils.LoadingUtils import readImage
 
-baseDir = "E:/Workspaces/PhillipsProject/Data/generated/"
-T2W_15T = baseDir + "T2_1.5T/"
-T2W_3T = baseDir + "T2_3T/"
-T1W_15T = baseDir + "T1_1.5T/"
-T1W_3T = baseDir + "T1_3T/"
-
-selectedDataPath = baseDir
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+baseDir = PROJECT_ROOT / "generated"
+selectedDataPath = str(baseDir) + "/"
 
 motionSeverities = ["M0/", "M1/", "M2/", "M3/", "M4/"]
 imageNames = []
